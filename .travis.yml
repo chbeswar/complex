@@ -17,10 +17,15 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
 
   #Tag those images and push them to the Docker Hub
-  - docker push chbeswar1990/multi-client
-  - docker push chbeswar1990/multi-nginx
-  - docker push chbeswar1990/multi-server
-  - docker push chbeswar1990/multi-worker
+  - docker tag first-image chbeswar1990/multi-client:first-image
+  - docker tag second-image chbeswar1990/multi-nginx:second-image
+  - docker tag third-image chbeswar1990/multi-server:third-image
+  - docker tag fourth-image chbeswar1990/multi-worker:fourth-image
+
+  - docker push chbeswar1990/multi-client:first-image
+  - docker push chbeswar1990/multi-nginx:second-image
+  - docker push chbeswar1990/multi-server:third-image
+  - docker push chbeswar1990/multi-worker:fourth-image
 
 
 
