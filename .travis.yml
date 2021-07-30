@@ -3,24 +3,24 @@ services:
   - docker
 
 before-install:
-  - docker build -t rao/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t chbeswar1990/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true rao/react-test npm test -- --coverage
+  - docker run -e CI=true chbeswar1990/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t rao/multi-client ./client
-  - docker build -t rao/multi-nginx ./nginx
-  - docker build -t rao/multi-server ./server
-  - docker build -t rao/multi-worker ./worker
+  - docker build -t chbeswar1990/multi-client ./client
+  - docker build -t chbeswar1990/multi-nginx ./nginx
+  - docker build -t chbeswar1990/multi-server ./server
+  - docker build -t chbeswar1990/multi-worker ./worker
   #Login to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
 
   #Tag those images and push them to the Docker Hub
-  - docker push rao/multi-client
-  - docker push rao/multi-nginx
-  - docker push rao/multi-server
-  - docker push rao/multi-worker
+  - docker push chbeswar1990/multi-client
+  - docker push chbeswar1990/multi-nginx
+  - docker push chbeswar1990/multi-server
+  - docker push chbeswar1990/multi-worker
 
 
 
