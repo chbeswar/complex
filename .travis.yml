@@ -14,13 +14,13 @@ after_success:
   - docker build -t chbeswar1990/multi-server ./server
   - docker build -t chbeswar1990/multi-worker ./worker
   #Login to the docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   #Tag those images and push them to the Docker Hub
-  - docker tag multi-client chbeswar1990/multi-client:latest
-  - docker tag multi-nginx chbeswar1990/multi-nginx:latest
-  - docker tag multi-server chbeswar1990/multi-server:latest
-  - docker tag multi-worker chbeswar1990/multi-worker:latest
+  #docker tag multi-client chbeswar1990/multi-client:latest
+  # docker tag multi-nginx chbeswar1990/multi-nginx:latest
+  # docker tag multi-server chbeswar1990/multi-server:latest
+  # docker tag multi-worker chbeswar1990/multi-worker:latest
 
   - docker push chbeswar1990/multi-client:latest
   - docker push chbeswar1990/multi-nginx:latest
